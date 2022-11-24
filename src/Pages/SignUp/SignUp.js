@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-// import toast from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
@@ -24,7 +24,7 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                // toast('User Created Successfully.')
+                toast('User Created Successfully.')
                 const userInfo = {
                     displayName: data.name
                 }
@@ -56,7 +56,7 @@ const SignUp = () => {
     }
 
     return (
-        <div className='h-[800px] flex justify-center items-center'>
+        <div className='flex justify-center mt-5'>
             <div className='w-96 p-7'>
                 <h2 className='text-xl text-center'>Sign Up</h2>
                 <form onSubmit={handleSubmit(handleSignUp)}>
