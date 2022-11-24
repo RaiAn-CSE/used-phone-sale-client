@@ -27,7 +27,7 @@ const router = createBrowserRouter([
             {
                 path: '/allmodels/:id',
                 element: <AllModels></AllModels>,
-                loader: ({ params }) => fetch(`usedPhone.json${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`)
             },
 
             // {
