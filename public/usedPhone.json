@@ -1,0 +1,53 @@
+[
+    {
+        "name": "IOS",
+        "category": [
+            {
+                "_id": 4,
+                "name": "IOS 8"
+            },
+            {
+                "_id": 5,
+                "name": "IOS 10"
+            },
+            {
+                "_id": 6,
+                "name": "IOS 11"
+            }
+        ]
+    },
+    {
+        "name": "Android",
+        "category": [
+            {
+                "_id": 7,
+                "name": "Android 8"
+            },
+            {
+                "_id": 8,
+                "name": "Android 10"
+            },
+            {
+                "_id": 9,
+                "name": "Android 11"
+            }
+        ]
+    },
+    {
+        "name": "Stock Android",
+        "category": [
+            {
+                "_id": 10,
+                "name": "Stock Android 8"
+            },
+            {
+                "_id": 11,
+                "name": "Stock Android 10"
+            },
+            {
+                "_id": 12,
+                "name": "Stock Android 11"
+            }
+        ]
+    }
+]
