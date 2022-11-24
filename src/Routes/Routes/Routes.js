@@ -1,16 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
 import Blogs from "../../Pages/Blogs/Blogs";
+import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import AllModels from "../../Pages/Home/Categories/AllModels";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
+import SignUp from "../../Pages/SignUp/SignUp";
+
 
 const router = createBrowserRouter([
 
     {
         path: '/',
         element: <Main></Main>,
-        // errorElement: <DisplayError></DisplayError>,
         children: [
             {
                 path: '/',
@@ -21,6 +23,10 @@ const router = createBrowserRouter([
                 element: <Login></Login>
             },
             {
+                path: '/signup',
+                element: <SignUp></SignUp>
+            },
+            {
                 path: '/blogs',
                 element: <Blogs></Blogs>
             },
@@ -29,18 +35,12 @@ const router = createBrowserRouter([
                 element: <AllModels></AllModels>,
                 loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`)
             },
-
-            // {
-            //     path: '/service/:id',
-            //     element: <PrivateRoute><Service></Service></PrivateRoute>,
-            //     loader: ({ params }) => fetch(`https://travel-service-server-zeta.vercel.app/services/${params.id}`)
-            // },
-            // {
-            //     path: '/appointment',
-            //     element: <Appointment></Appointment>
-            // }
         ]
     },
+    {
+        path: '/dashboard',
+        element: <Dashboard></Dashboard>
+    }
 ])
 
 export default router;
