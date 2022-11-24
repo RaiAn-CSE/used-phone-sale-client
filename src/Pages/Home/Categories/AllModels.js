@@ -29,7 +29,7 @@ const AllModels = () => {
                 model &&
                 <BookingModal
                     model={model}
-
+                    setModel={setModel}
                 ></BookingModal>
             }
         </div>
