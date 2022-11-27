@@ -19,7 +19,7 @@ const SignUp = () => {
 
     const handleSignUp = (data) => {
         setSignUPError('');
-        createUser(data.email, data.password)
+        createUser(data.email, data.password, data.userType)
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -29,7 +29,7 @@ const SignUp = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        saveUser(data.name, data.email);
+                        saveUser(data.name, data.email, data.userType);
                     })
                     .catch(err => console.log(err));
             })
@@ -39,8 +39,8 @@ const SignUp = () => {
             });
     }
 
-    const saveUser = (name, email) => {
-        const user = { name, email };
+    const saveUser = (name, email, userType) => {
+        const user = { name, email, role: userType };
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
@@ -59,6 +59,7 @@ const SignUp = () => {
             <div className='w-96 p-7'>
                 <h2 className='text-xl text-center'>Sign Up</h2>
                 <form onSubmit={handleSubmit(handleSignUp)}>
+                    {/* Name :  */}
                     <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">Name</span></label>
                         <input type="text" {...register("name", {
@@ -66,6 +67,16 @@ const SignUp = () => {
                         })} className="input input-bordered w-full max-w-xs" />
                         {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
                     </div>
+                    {/* User :  */}
+                    <div className="form-control w-full max-w-xs">
+                        <label className="label"> <span className="label-text">User Type</span></label>
+                        <select {...register("userType")}>
+                            <option value="buyer">buyer</option>
+                            <option value="seller">seller</option>
+                        </select>
+                        {errors.userType && <p className='text-red-500'>{errors.userType.message}</p>}
+                    </div>
+                    {/* Email :  */}
                     <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">Email</span></label>
                         <input type="email" {...register("email", {
@@ -73,6 +84,7 @@ const SignUp = () => {
                         })} className="input input-bordered w-full max-w-xs" />
                         {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
                     </div>
+                    {/* Password :  */}
                     <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">Password</span></label>
                         <input type="password" {...register("password", {

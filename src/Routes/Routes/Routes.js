@@ -12,6 +12,7 @@ import MyProducts from "../../Pages/MyProducts/MyProducts";
 import SignUp from "../../Pages/SignUp/SignUp";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import SellerRoute from "../SellerRoute/SellerRoute";
 
 
 const router = createBrowserRouter([
@@ -51,11 +52,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addproducts',
-                element: <AdminRoute><AddProducts></AddProducts></AdminRoute>
+                element: <SellerRoute><AddProducts></AddProducts></SellerRoute>
             },
             {
                 path: '/myproducts',
-                element: <AdminRoute><MyProducts></MyProducts></AdminRoute>
+                element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
             },
         ]
     },

@@ -1,15 +1,18 @@
 import React from 'react';
 
-const ProductCard = ({ product }) => {
-    const { name } = product;
+const ProductCard = ({ product, setDeletingProduct }) => {
+    const { name, image, price, condition, location, purchaseTime } = product;
     return (
         <div className="card card-compact shadow-xl">
-            <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+            <figure><img src={image} alt="Shoes" /></figure>
             <div className="card-body">
-                <h2 className="card-title">{name}</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 className="card-title">Name : {name}</h2>
+                <p>Price : {price}$</p>
+                <p>Condition : {condition}</p>
+                <p>Location : {location}</p>
+                <p>Purchase Time : {purchaseTime}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <label onClick={() => setDeletingProduct(product)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>
                 </div>
             </div>
         </div>

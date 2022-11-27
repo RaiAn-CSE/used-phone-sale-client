@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import useAdmin from '../../../hooks/useAdmin';
+import useSeller from '../../../hooks/useSeller';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [isAdmin] = useAdmin(user?.email)
+    const [isSeller] = useSeller(user?.email)
 
     const handleLogOut = () => {
         logOut()
@@ -15,8 +17,13 @@ const Navbar = () => {
 
     const menuItems = <React.Fragment>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/myproducts">My Products</Link></li>
-        <li><Link to="/addproducts">Add Products</Link></li>
+        {
+            isSeller &&
+            <>
+                <li><Link to="/myproducts">My Products</Link></li>
+                <li><Link to="/addproducts">Add Products</Link></li>
+            </>
+        }
         {
             isAdmin &&
             <>

@@ -61,6 +61,8 @@ const MyProducts = () => {
                     products.map((product, i) => <ProductCard
                         key={product._id}
                         product={product}
+                        setDeletingProduct={setDeletingProduct}
+                        deletingProduct={deletingProduct}
 
                     >
                     </ProductCard>)
