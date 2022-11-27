@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import ConfirmationModal from '../Shared/ConfirmationModal/ConfirmationModal';
 import Loading from '../Shared/Loading/Loading';
+import ProductCard from './ProductCard/ProductCard';
 
 
 const MyProducts = () => {
@@ -43,7 +44,7 @@ const MyProducts = () => {
             .then(data => {
                 if (data.deletedCount > 0) {
                     refetch();
-                    toast.success(`Doctor ${product.name} deleted successfully`)
+                    toast.success(`Product ${product.name} deleted successfully`)
                 }
             })
     }
@@ -55,14 +56,28 @@ const MyProducts = () => {
     return (
         <div>
             <h2 className="text-3xl">Total Products: {products?.length}</h2>
-            <div className="overflow-x-auto">
+            <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6'>
+                {
+                    products.map((product, i) => <ProductCard
+                        key={product._id}
+                        product={product}
+
+                    >
+                    </ProductCard>)
+                }
+            </div>
+
+
+
+            {/* <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>
                             <th>Img</th>
                             <th>Name</th>
-                            {/* <th>Price</th> */}
+                            <th>Price</th>
+                            <th>condition</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -76,6 +91,8 @@ const MyProducts = () => {
                                     </div>
                                 </div></td>
                                 <td>{product.name}</td>
+                                <td>{product.price}</td>
+                                <td>{product.condition}</td>
                                 <td>
                                     <label onClick={() => setDeletingProduct(product)} htmlFor="confirmation-modal" className="btn btn-sm btn-error">Delete</label>
                                 </td>
@@ -83,7 +100,7 @@ const MyProducts = () => {
                         }
                     </tbody>
                 </table>
-            </div>
+            </div> */}
             {
                 deletingProduct && <ConfirmationModal
                     title={`Are you sure you want to delete?`}
@@ -95,7 +112,7 @@ const MyProducts = () => {
                 >
                 </ConfirmationModal>
             }
-        </div>
+        </div >
     );
 };
 
