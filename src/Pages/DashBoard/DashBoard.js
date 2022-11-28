@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 
-const AllBuyers = () => {
+const DashBoard = () => {
 
     const [sellers, setSellers] = useState([])
 
@@ -94,4 +94,4 @@ const AllBuyers = () => {
     );
 };
 
-export default AllBuyers;
+export default DashBoard;
