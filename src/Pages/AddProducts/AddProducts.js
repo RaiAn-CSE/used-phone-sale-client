@@ -43,6 +43,7 @@ const AddProducts = () => {
                         location: data.location,
                         description: data.description,
                         purchaseTime: data.purchaseTime,
+                        saleStatus: 'Available'
                     }
 
                     // Save Products information to the database

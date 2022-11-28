@@ -9,6 +9,8 @@ const Navbar = () => {
     const [isAdmin] = useAdmin(user?.email)
     const [isSeller] = useSeller(user?.email)
 
+    console.log(isSeller);
+
     const handleLogOut = () => {
         logOut()
             .then(() => { })
