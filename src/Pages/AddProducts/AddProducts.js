@@ -10,7 +10,7 @@ const AddProducts = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const imageHostKey = process.env.REACT_APP_imgbb_key;
-
+    console.log(imageHostKey);
     const navigate = useNavigate();
 
     const { isLoading } = useQuery({
@@ -24,9 +24,11 @@ const AddProducts = () => {
 
     const handleAddProduct = data => {
         const image = data.image[0];
+        console.log(image);
         const formData = new FormData();
         formData.append('image', image);
         const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`
+        console.log(url);
         fetch(url, {
             method: 'POST',
             body: formData
@@ -43,11 +45,28 @@ const AddProducts = () => {
                         location: data.location,
                         description: data.description,
                         purchaseTime: data.purchaseTime,
-                        saleStatus: 'Available'
+                        saleStatus: 'Available',
+                        categoryName: data.category
                     }
 
                     // Save Products information to the database
                     fetch('http://localhost:5000/products', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json',
+                            authorization: `bearer ${localStorage.getItem('accessToken')}`
+                        },
+                        body: JSON.stringify(product)
+                    })
+                        .then(res => res.json())
+                        .then(result => {
+                            console.log(result);
+                            toast.success(`${data.name} is added successfully`);
+                            navigate('/myproducts')
+                        })
+
+                    // Save Products information to the Home
+                    fetch(`http://localhost:5000/addProduct?category=${data.category}`, {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -129,6 +148,16 @@ const AddProducts = () => {
                             required: "Price is Required"
                         })} className="input input-bordered w-full max-w-xs" />
                         {errors.purchaseTime && <p className='text-red-500'>{errors.purchaseTime.message}</p>}
+                    </div>
+                    {/* Add To Home  */}
+                    <div className="form-control w-full max-w-xs">
+                        <label className="label"> <span className="label-text">Product Category</span></label>
+                        <select {...register("category")}>
+                            <option value="IOS">IOS</option>
+                            <option value="Android">Android</option>
+                            <option value="Button Phone">Button Phone</option>
+                        </select>
+                        {errors.category && <p className='text-red-500'>{errors.category.message}</p>}
                     </div>
 
                     {/* Submit Button : */}

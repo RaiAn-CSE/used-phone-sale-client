@@ -1,0 +1,20 @@
+[
+    {
+        "categoryId": "1",
+        "categoryName": "Android",
+        "categoryImage": "https://www.android.com/static/2016/img/share/andy-lg.png",
+        "Description": "Android is a mobile operating system based on a modified version of the Linux kernel and other open-source software, designed primarily for touchscreen mobile devices such as smartphones and tablets."
+    },
+    {
+        "categoryId": "2",
+        "categoryName": "IOS",
+        "categoryImage": "https://www.apple.com/v/iphone/home/bk/images/meta/iphone__ky2k6x5u6vue_og.png",
+        "Description": "The iPhone is a smartphone made by Apple that combines a computer, iPod, digital camera and cellular phone into one device with a touchscreen interface. The iPhone runs the iOS operating system, and in 2021 when the iPhone 13 was introduced, it offered up to 1 TB of storage and a 12-megapixel camera."
+    },
+    {
+        "categoryId": "3",
+        "categoryName": "Button Phone",
+        "categoryImage": "https://i.ibb.co/WKF031Y/Nokia-696x425.jpg",
+        "Description": "The push-button telephone is a telephone that has buttons or keys for dialing a telephone number, in contrast to having a rotary dial as in earlier telephone instruments."
+    }
+]

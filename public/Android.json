@@ -1,0 +1,20 @@
+[
+    {
+        "categoryId": "1",
+        "name": "One Plus",
+        "image": "https://www.deccanherald.com/sites/dh/files/styles/article_detail/public/articleimages/2022/06/02/opnce-cov-sho-sel-1-1114681-1654183014.jpg?itok=g9QNvPbm",
+        "price": "200",
+        "condition": "Good",
+        "location": "Dhaka",
+        "purchaseTime": "2 year"
+    },
+    {
+        "categoryId": "2",
+        "name": "Oppo",
+        "image": "https://i0.wp.com/techweez.com/wp-content/uploads/2022/04/OPPO-Reno7-5G-scaled.jpg?fit=2560%2C1707&ssl=1",
+        "price": "200",
+        "condition": "Excellent",
+        "location": "Rajshahi",
+        "purchaseTime": "1 year"
+    }
+]
