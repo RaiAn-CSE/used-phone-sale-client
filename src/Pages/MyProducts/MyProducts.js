@@ -1,12 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../../contexts/AuthProvider';
 import ConfirmationModal from '../Shared/ConfirmationModal/ConfirmationModal';
 import Loading from '../Shared/Loading/Loading';
 import ProductCard from './ProductCard/ProductCard';
 
 
 const MyProducts = () => {
+    const { user } = useContext(AuthContext)
     const [deletingProduct, setDeletingProduct] = useState(null);
 
     const closeModal = () => {
@@ -18,7 +20,7 @@ const MyProducts = () => {
         queryKey: ['products'],
         queryFn: async () => {
             try {
-                const res = await fetch('http://localhost:5000/products', {
+                const res = await fetch(`http://localhost:5000/products?email=${user?.email}`, {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -31,6 +33,40 @@ const MyProducts = () => {
             }
         }
     });
+
+    const setAdvertise = p => {
+
+        const { _id, name, image, price, condition, location, purchaseTime, categoryName, sellerEmail } = p;
+
+        const product = {
+            productId: _id,
+            name: name,
+            image,
+            price,
+            condition,
+            location,
+            purchaseTime,
+            sellerEmail,
+        }
+
+        fetch(`http://localhost:5000/advertise`, {
+            method: 'POST',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(product)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    console.log(data.insertId);
+                    toast.success(`Product Advertise successfully`)
+
+                }
+            })
+
+    }
 
 
     const handleDeleteProduct = product => {
@@ -63,7 +99,7 @@ const MyProducts = () => {
                         product={product}
                         setDeletingProduct={setDeletingProduct}
                         deletingProduct={deletingProduct}
-
+                        setAdvertise={setAdvertise}
                     >
                     </ProductCard>)
                 }
