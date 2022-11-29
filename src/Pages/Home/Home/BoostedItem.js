@@ -7,7 +7,7 @@ const BoostedItem = () => {
     const [model, setModel] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:5000/ad')
+        fetch('https://y-five-snowy.vercel.app/ad')
             .then(res => res.json())
             .then(data => setPhoneModels(data))
     }, [])

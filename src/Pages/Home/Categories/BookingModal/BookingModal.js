@@ -28,7 +28,7 @@ const BookingModal = ({ model, setModel }) => {
 
         console.log(bookProduct);
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://y-five-snowy.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

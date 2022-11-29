@@ -7,7 +7,7 @@ const Categories = () => {
     const [phoneModels, setPhoneModels] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/categories', {
+        axios.get('https://y-five-snowy.vercel.app/categories', {
             headers: {
                 authorization: `bearer ${localStorage.getItem('clotheToken')}`
             }
@@ -21,7 +21,7 @@ const Categories = () => {
     }, [])
 
     // useEffect(() => {
-    //     fetch('http://localhost:5000/categories')
+    //     fetch('https://y-five-snowy.vercel.app/categories')
     //         .then(res => res.json())
     //         .then(data => setPhoneModels(data))
     // }, [])

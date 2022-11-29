@@ -18,7 +18,7 @@ const AddProducts = () => {
     const { isLoading } = useQuery({
         queryKey: [''],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/products');
+            const res = await fetch('https://y-five-snowy.vercel.app/products');
             const data = await res.json();
             return data;
         }
@@ -53,7 +53,7 @@ const AddProducts = () => {
                     }
 
                     // Save Products information to the database
-                    fetch('http://localhost:5000/products', {
+                    fetch('https://y-five-snowy.vercel.app/products', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -69,7 +69,7 @@ const AddProducts = () => {
                         })
 
                     // Save Products information to the Home
-                    fetch(`http://localhost:5000/addProduct?category=${data.category}`, {
+                    fetch(`https://y-five-snowy.vercel.app/addProduct?category=${data.category}`, {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -139,7 +139,7 @@ const AddProducts = () => {
                     {/* Description :  */}
                     <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">Description</span></label>
-                        <input type="text" {...register("location", {
+                        <input type="text" {...register("description", {
                             required: "Price is Required"
                         })} className="input input-bordered w-full max-w-xs" />
                         {errors.description && <p className='text-red-500'>{errors.description.message}</p>}

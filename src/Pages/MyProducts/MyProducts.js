@@ -20,7 +20,7 @@ const MyProducts = () => {
         queryKey: ['products'],
         queryFn: async () => {
             try {
-                const res = await fetch(`http://localhost:5000/products?email=${user?.email}`, {
+                const res = await fetch(`https://y-five-snowy.vercel.app/products?email=${user?.email}`, {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -49,7 +49,7 @@ const MyProducts = () => {
             sellerEmail,
         }
 
-        fetch(`http://localhost:5000/advertise`, {
+        fetch(`https://y-five-snowy.vercel.app/advertise`, {
             method: 'POST',
             headers: {
                 "content-type": "application/json"
@@ -70,7 +70,7 @@ const MyProducts = () => {
 
 
     const handleDeleteProduct = product => {
-        fetch(`http://localhost:5000/products/${product._id}`, {
+        fetch(`https://y-five-snowy.vercel.app/products/${product._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

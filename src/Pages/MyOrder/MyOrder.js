@@ -12,7 +12,7 @@ const MyOrder = () => {
     const { isLoading, data: orders = [], refetch } = useQuery({
         queryKey: ['ordersData'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/bookings?email=${user?.email}`, {
+            const res = await fetch(`https://y-five-snowy.vercel.app/bookings?email=${user?.email}`, {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('clotheToken')}`
                 }
@@ -26,7 +26,7 @@ const MyOrder = () => {
     console.log(orders);
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/bookings/${id}`, {
+        fetch(`https://y-five-snowy.vercel.app/bookings/${id}`, {
             method: 'DELETE'
         })
             .then(res => {

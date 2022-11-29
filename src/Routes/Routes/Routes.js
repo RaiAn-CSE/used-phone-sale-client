@@ -49,7 +49,7 @@ const router = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <AllModels></AllModels>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://y-five-snowy.vercel.app/category/${params.id}`)
             },
             {
                 path: '/allsellers',

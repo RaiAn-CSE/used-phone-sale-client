@@ -41,7 +41,7 @@ const SignUp = () => {
 
     const saveUser = (name, email, userType) => {
         const user = { name, email, role: userType };
-        fetch('http://localhost:5000/users', {
+        fetch('https://y-five-snowy.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

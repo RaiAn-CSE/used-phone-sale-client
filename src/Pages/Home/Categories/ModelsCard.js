@@ -13,7 +13,7 @@ const ModelsCard = ({ model, setModel }) => {
             price,
         }
 
-        fetch(`http://localhost:5000/reportedItems`, {
+        fetch(`https://y-five-snowy.vercel.app/reportedItems`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

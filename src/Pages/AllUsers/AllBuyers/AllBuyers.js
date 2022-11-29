@@ -9,7 +9,7 @@ const AllBuyers = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch("http://localhost:5000/dashboard/allbuyers?role=buyer");
+            const res = await fetch("https://y-five-snowy.vercel.app/dashboard/allbuyers?role=buyer");
             const data = await res.json();
             // console.log(data);
             return data;
@@ -21,7 +21,7 @@ const AllBuyers = () => {
         const agree = window.confirm(`Are you sure you want to delete :${id} `)
         if (agree) {
             console.log("Deleting user with id:", id)
-            fetch(`http://localhost:5000/users/${id}`, {
+            fetch(`https://y-five-snowy.vercel.app/users/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
