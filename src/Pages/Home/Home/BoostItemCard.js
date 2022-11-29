@@ -11,13 +11,6 @@ const BoostItemCard = ({ model, setModel }) => {
                 <p>Condition : {condition}</p>
                 <p>Location : {location}</p>
                 <p>Purchase Time : {purchaseTime}</p>
-                <div className="card-actions justify-center">
-                    <label
-                        htmlFor="booking-modal"
-                        className="btn btn-primary text-white"
-                        onClick={() => setModel(model)}
-                    >Book Now</label>
-                </div>
             </div>
         </div>
     );
