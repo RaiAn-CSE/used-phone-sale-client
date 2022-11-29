@@ -70,7 +70,7 @@ const SignUp = () => {
                     {/* User :  */}
                     <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">User Type</span></label>
-                        <select {...register("modelType")}>
+                        <select {...register("userType")}>
                             <option value="buyer">buyer</option>
                             <option value="seller">seller</option>
                         </select>
