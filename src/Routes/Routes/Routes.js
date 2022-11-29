@@ -96,7 +96,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/reportedItems',
-                element: <ReportedItems></ReportedItems>
+                element: <SellerRoute><ReportedItems></ReportedItems></SellerRoute>
             },
         ]
     }

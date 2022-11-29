@@ -37,23 +37,6 @@ const AllBuyers = () => {
         }
     }
 
-    // const handleMakeAdmin = id => {
-    //     fetch(`http://localhost:5000/users/admin/${id}`, {
-    //         method: 'PUT',
-    //         headers: {
-    //             authorization: `bearer ${localStorage.getItem('accessToken')}`
-    //         }
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data);
-    //             if (data.modifiedCount > 0) {
-    //                 toast.success('Make admin successful.')
-    //                 refetch();
-    //             }
-    //         })
-    // }
-
     return (
         <div>
             <h2 className="text-3xl">All Sellers {users.length}</h2>
@@ -64,7 +47,6 @@ const AllBuyers = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
-                            {/* <th>Admin</th> */}
                             <th>Delete</th>
                         </tr>
                     </thead>
@@ -74,13 +56,6 @@ const AllBuyers = () => {
                                 <th>{i + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                {/* <td>
-                                    {
-                                        user?.role !== 'admin' &&
-                                        <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin
-                                        </button>
-                                    }
-                                </td> */}
                                 <td>
                                     <button className="btn btn-outline btn-warning btn-xs mr-3 mb-5" onClick={() => handleDelete(user._id)}>Delete</button>
                                 </td>

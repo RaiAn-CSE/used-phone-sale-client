@@ -24,12 +24,12 @@ const Navbar = () => {
     const menuItems = <React.Fragment>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/myorders">My Orders</Link></li>
-        <li><Link to="/dashboard/reportedItems">Reported Item</Link></li>
         {
             isSeller &&
             <>
                 <li><Link to="/myproducts">My Products</Link></li>
                 <li><Link to="/addproducts">Add Products</Link></li>
+                <li><Link to="/dashboard/reportedItems">Reported Item</Link></li>
             </>
         }
         {
