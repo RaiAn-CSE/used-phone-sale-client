@@ -9,7 +9,9 @@ import DashBoard from "../../Pages/DashBoard/DashBoard";
 import AllModels from "../../Pages/Home/Categories/AllModels";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
+import MyOrder from "../../Pages/MyOrder/MyOrder";
 import MyProducts from "../../Pages/MyProducts/MyProducts";
+import ReportedItems from "../../Pages/ReportedItems/ReportedItems";
 import DisplayError from "../../Pages/Shared/DisplayError/DisplayError";
 import SignUp from "../../Pages/SignUp/SignUp";
 import AdminRoute from "../AdminRoute/AdminRoute";
@@ -39,6 +41,10 @@ const router = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>
+            },
+            {
+                path: '/myorders',
+                element: <MyOrder></MyOrder>
             },
             {
                 path: '/category/:id',
@@ -88,27 +94,10 @@ const router = createBrowserRouter([
                 path: '/dashboard/myproducts',
                 element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
             },
-            // {
-            //     path: '/dashboard',
-            //     element: <MyAppointment></MyAppointment>
-            // },
-            // {
-            //     path: '/dashboard/allusers',
-            //     element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
-            // },
-            // {
-            //     path: '/dashboard/adddoctor',
-            //     element: <AdminRoute><AddDoctor></AddDoctor></AdminRoute>
-            // },
-            // {
-            //     path: '/dashboard/managedoctors',
-            //     element: <AdminRoute><ManageDoctors></ManageDoctors></AdminRoute>
-            // },
-            // {
-            //     path: '/dashboard/payment/:id',
-            //     element: <AdminRoute><Payment></Payment></AdminRoute>,
-            //     loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
-            // },
+            {
+                path: '/dashboard/reportedItems',
+                element: <ReportedItems></ReportedItems>
+            },
         ]
     }
 ])

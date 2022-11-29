@@ -5,13 +5,9 @@ import ModelsCard from './ModelsCard';
 
 const AllModels = () => {
     const models = useLoaderData();
-    console.log(models);
+    // console.log(models);
     const [model, setModel] = useState(null);
 
-    // console.log(models);
-
-    // const { categoryName, _id } = models;
-    // console.log(category);
 
     return (
         <div>

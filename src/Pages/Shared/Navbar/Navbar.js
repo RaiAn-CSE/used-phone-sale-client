@@ -23,6 +23,8 @@ const Navbar = () => {
 
     const menuItems = <React.Fragment>
         <li><Link to="/">Home</Link></li>
+        <li><Link to="/myorders">My Orders</Link></li>
+        <li><Link to="/dashboard/reportedItems">Reported Item</Link></li>
         {
             isSeller &&
             <>
